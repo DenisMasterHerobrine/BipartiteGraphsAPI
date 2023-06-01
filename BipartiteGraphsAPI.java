@@ -1,5 +1,3 @@
-package BipartiteGraphsAPI;
-
 import java.io.*;
 import java.util.*;
 
@@ -244,6 +242,7 @@ public class BipartiteGraphsAPI {
         int[] colors = new int[n]; // 0 for uncolored, 1 for black, -1 for white
         int[] parents = new int[n];
         List<Integer> cycle = new ArrayList<>();
+
         for (int i = 0; i < n; i++) {
             if (colors[i] == 0 && deepFirstSearchCycle(adjMatrix, colors, parents, i, 1, cycle)) {
                 // Found an odd cycle
