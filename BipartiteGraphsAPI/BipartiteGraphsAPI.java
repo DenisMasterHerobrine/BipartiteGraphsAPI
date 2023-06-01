@@ -150,7 +150,7 @@ public class BipartiteGraphsAPI {
      * @return A boolean indicating whether the graph is bipartite or not.
      * @since 1.0.0
      */
-    private static boolean dfsBipartite(int[][] adjMatrix, int vertex, int[] colors, int color) {
+    private static boolean deepFirstSearchBipartite(int[][] adjMatrix, int vertex, int[] colors, int color) {
         // Assign the current color to the current vertex
         colors[vertex] = color;
 
@@ -160,7 +160,7 @@ public class BipartiteGraphsAPI {
             if (adjMatrix[vertex][i] == 1) {
                 if (colors[i] == -1) {
                     // Recursively call dfsBipartite with the adjacent vertex and the opposite color
-                    if (!dfsBipartite(adjMatrix, i, colors, 1 - color)) {
+                    if (!deepFirstSearchBipartite(adjMatrix, i, colors, 1 - color)) {
                         return false;
                     }
                 } else if (colors[i] == color) {
@@ -189,7 +189,7 @@ public class BipartiteGraphsAPI {
 
         // Check each vertex and its neighbors to see if the graph is bipartite.
         for (int i = 0; i < adjMatrix.length; i++) {
-            if (colors[i] == -1 && !dfsBipartite(adjMatrix, i, colors, 1)) {
+            if (colors[i] == -1 && !deepFirstSearchBipartite(adjMatrix, i, colors, 1)) {
                 return false;
             }
         }
@@ -213,7 +213,7 @@ public class BipartiteGraphsAPI {
 
         // Check each vertex and its neighbors to see if the graph is bipartite.
         for (int i = 0; i < adjMatrix.length; i++) {
-            if (colors[i] == -1 && !dfsBipartite(adjMatrix, i, colors, 1)) {
+            if (colors[i] == -1 && !deepFirstSearchBipartite(adjMatrix, i, colors, 1)) {
                 return null;
             }
         }
