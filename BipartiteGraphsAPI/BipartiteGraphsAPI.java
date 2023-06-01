@@ -251,7 +251,7 @@ public class BipartiteGraphsAPI {
                 int cycleStart = cycle.get(cycle.size() - 1);
                 int currVertex = parents[cycleStart];
                 while (currVertex != cycleStart) {
-                    cycle.add(currVertex); // Shift each vertex ID by 1
+                    cycle.add(currVertex);
                     currVertex = parents[currVertex];
                 }
                 Collections.reverse(cycle);
