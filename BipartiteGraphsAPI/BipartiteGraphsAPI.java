@@ -167,7 +167,7 @@ class BipartiteGraphsAPI {
             // If the current vertex is connected to the current vertex and the adjacent vertex has not been colored yet
             if (MatrixHolder[vertex][i] == 1) {
                 if (colors[i] == -1) {
-                    // Recursively call deepFirstSearchBipartite with the adjacent vertex and the opposite color
+                    // Recursively call deepFirstSearchForPartitions with the adjacent vertex and the opposite color
                     if (!deepFirstSearchForPartitions(MatrixHolder, i, colors, 1 - color)) {
                         return false;
                     }
@@ -214,7 +214,7 @@ class BipartiteGraphsAPI {
             }
         }
 
-        // Return the lists of vertices for eac h color.
+        // Return the lists of vertices for each color.
         return new List[]{verticesA, verticesB};
     }
 
