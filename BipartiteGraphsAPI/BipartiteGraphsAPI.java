@@ -226,12 +226,13 @@ class BipartiteGraphsAPI {
      * @since 1.0.1
      */
     public static List<Integer> findOddCycle(int[][] MatrixHolder) {
-        int n = MatrixHolder.length;
-        boolean[] visited = new boolean[n];
-        int[] parent = new int[n];
+        int length = MatrixHolder.length;
+        boolean[] visited = new boolean[length];
+        int[] parent = new int[length];
         Arrays.fill(parent, -1);
 
-        for (int i = 0; i < n; i++) {
+        // Traverse through all vertices of the graph
+        for (int i = 0; i < length; i++) {
             if (!visited[i]) {
                 List<Integer> cycle = deepFirstSearchForCycle(MatrixHolder, i, parent, visited);
                 if (cycle != null) {
